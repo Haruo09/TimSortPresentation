@@ -57,7 +57,7 @@ def main():
     # Plot 2: Nearly-Sorted
     axes[0, 1].scatter(sizes, times_nearly, color='darkgreen', label="Measured Data", s=20)
     axes[0, 1].plot(fit_sizes, fit_near, color='teal', label=f"Fit: y = {p_near[0]:.2e}·n·log₂(n) + {p_near[1]:.2e}")
-    axes[0, 1].set_title(f"Nearly-Sorted Input Array ({int(SWAP_NOISE_PERCENT*100)}% Noise)")
+    axes[0, 1].set_title(f"Nearly-Sorted Input Array ({SWAP_NOISE_PERCENT*100}% Noise)")
     axes[0, 1].set_xlabel("Array Size (n)")
     axes[0, 1].set_ylabel("Execution Time (seconds)")
     axes[0, 1].legend()
@@ -73,11 +73,11 @@ def main():
     axes[1, 0].grid(True)
 
     # Plot 4: Combined Average Trends
-    axes[1, 1].plot(sizes, times_random, label="Random", color='crimson', linestyle='--')
-    axes[1, 1].plot(sizes, times_nearly, label="Nearly-Sorted", color='darkgreen', linestyle='-.')
-    axes[1, 1].plot(sizes, times_reverse, label="Reverse-Sorted", color='purple', linestyle=':')
-    avg_times = (times_random + times_nearly + times_reverse) / 3.0
-    axes[1, 1].plot(sizes, avg_times, label="Average Across All Cases", color='black', linewidth=2)
+    axes[1, 1].plot(fit_sizes, fit_rand, label="Random", color='crimson', linestyle='--')
+    axes[1, 1].plot(fit_sizes, fit_near, label="Nearly-Sorted", color='darkgreen', linestyle='-.')
+    axes[1, 1].plot(fit_sizes, fit_rev, label="Reverse-Sorted", color='purple', linestyle=':')
+    avg_fit = (fit_rand + fit_near + fit_rev) / 3.0
+    axes[1, 1].plot(fit_sizes, avg_fit, label="Average Across All Cases", color='black', linewidth=2)
 
     axes[1, 1].set_title("Comparative Distribution Performance")
     axes[1, 1].set_xlabel("Array Size (n)")

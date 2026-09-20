@@ -24,12 +24,12 @@ def main():
 
     dists = [
         ("Totally Random Array", gen_random_array),
-        (f"Nearly-Sorted Array ({int(SWAP_NOISE_PERCENT*100)}% Noise)", gen_nearly_sorted_array),
+        (f"Nearly-Sorted Array {SWAP_NOISE_PERCENT*100}% Noise)", gen_nearly_sorted_array),
         ("Reverse-Sorted Array", gen_reverse_sorted_array),
     ]
 
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
-    fig.suptitle("Performance Comparison: TimSort vs QuickSort (C Code)", fontsize=15)
+    fig.suptitle("Performance Comparison: TimSort vs  QuickSort (C Code)", fontsize=15)
 
     for i, (title, dist_gen) in enumerate(dists):
         print(f" -> Benchmarking: {title}...")

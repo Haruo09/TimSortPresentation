@@ -9,7 +9,7 @@ MIN_SIZE = 100
 MAX_SIZE = 100_000
 NUM_STEPS = 50
 TRIALS_PER_SIZE = 5
-SWAP_NOISE_PERCENT = 0.05
+SWAP_NOISE_PERCENT = 0.005
 
 
 def load_dynamic_lib():
@@ -51,15 +51,22 @@ def gen_random_array(n: int) -> np.ndarray:
     """Generates an array filled with random 32-bit integers."""
     return np.random.randint(-1_000_000, 1_000_000, size=n, dtype=np.int32)
 
-
 def gen_nearly_sorted_array(n: int, swap_ratio: float = SWAP_NOISE_PERCENT) -> np.ndarray:
-    """Generates a sorted array with a small percentage of random element swaps."""
     arr = np.arange(n, dtype=np.int32)
     num_swaps = max(1, int(n * swap_ratio))
     for _ in range(num_swaps):
-        idx1, idx2 = np.random.randint(0, n, size=2)
-        arr[idx1], arr[idx2] = arr[idx2], arr[idx1]
+        idx = np.random.randint(0, n - 1)
+        arr[idx], arr[idx + 1] = arr[idx + 1], arr[idx]
     return arr
+
+# def gen_nearly_sorted_array(n: int, swap_ratio: float = SWAP_NOISE_PERCENT) -> np.ndarray:
+#     """Generates a sorted array with a small percentage of random element swaps."""
+#     arr = np.arange(n, dtype=np.int32)
+#     num_swaps = max(1, int(n * swap_ratio))
+#     for _ in range(num_swaps):
+#         idx1, idx2 = np.random.randint(0, n, size=2)
+#         arr[idx1], arr[idx2] = arr[idx2], arr[idx1]
+#     return arr
 
 
 def gen_reverse_sorted_array(n: int) -> np.ndarray:
