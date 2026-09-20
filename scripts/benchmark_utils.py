@@ -36,6 +36,10 @@ def load_dynamic_lib():
         c_lib.quickSortAlgo.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int]
         c_lib.quickSortAlgo.restype = None
 
+    if hasattr(c_lib, "betterQuickSortAlgo"):
+        c_lib.betterQuickSortAlgo.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int]
+        c_lib.betterQuickSortAlgo.restype = None
+
     return c_lib
 
 
