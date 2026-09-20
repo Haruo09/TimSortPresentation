@@ -7,7 +7,7 @@
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 
 // o insertion sort ordena fatias pequenas do array
-static void insertionSort(int arr[], int left, int right) {
+static void insertionSort(int *arr, int left, int right) {
 
     // começa do segundo elemento até o final
     for (int i = left + 1; i <= right; i++) {
@@ -25,7 +25,7 @@ static void insertionSort(int arr[], int left, int right) {
 }
 
 // pega dois sub-arrays que estão ordenados e une eles
-static void merge(int arr[], int l, int m, int r) {
+static void merge(int *arr, int l, int m, int r) {
 
     // calcula o tamanho dos sub-arrays len1 e len2
     int len1 = m - l + 1, len2 = r - m;
@@ -71,7 +71,7 @@ static void merge(int arr[], int l, int m, int r) {
     }
 }
 
-void timSortAlgo(int arr[], int n) {
+void timSortAlgo(int *arr, int n) {
 
     // quebra o array em blocos de tamanho RUN (32)
     for (int i = 0; i < n; i += RUN)
