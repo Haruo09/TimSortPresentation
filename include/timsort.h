@@ -3,5 +3,6 @@
 
 // void timSortAlgo(int arr[], int n);
 void timSortAlgo(int *arr, int n);
+void betterTimSortAlgo(int *arr, int n);
 
 #endif // !TIMSORT_H
