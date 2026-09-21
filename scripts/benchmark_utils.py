@@ -9,7 +9,7 @@ MIN_SIZE = 100
 MAX_SIZE = 100_000
 NUM_STEPS = 50
 TRIALS_PER_SIZE = 5
-SWAP_NOISE_PERCENT = 0.005
+SWAP_NOISE_PERCENT = 0.05
 
 
 def load_dynamic_lib():
@@ -43,6 +43,10 @@ def load_dynamic_lib():
     if hasattr(c_lib, "betterTimSortAlgo"):
         c_lib.betterTimSortAlgo.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int]
         c_lib.betterTimSortAlgo.restype = None
+
+    if hasattr(c_lib, "peakTimSortAlgo"):
+        c_lib.peakTimSortAlgo.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int]
+        c_lib.peakTimSortAlgo.restype = None
 
     return c_lib
 
