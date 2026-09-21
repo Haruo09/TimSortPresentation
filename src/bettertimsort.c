@@ -96,7 +96,6 @@ static void merge(int *arr, int l, int m, int r, int *temp) {
 static void mergeAt(int *arr, Run stack[], int *stackSize, int i, int *temp) {
     int base1 = stack[i].base;
     int len1 = stack[i].len;
-    int base2 = stack[i + 1].base;
     int len2 = stack[i + 1].len;
 
     stack[i].len = len1 + len2;
