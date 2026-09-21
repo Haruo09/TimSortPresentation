@@ -22,9 +22,9 @@ static int calcMinRun(int n) {
 
 // Scans for natural runs. Reverses strictly descending runs in O(n) time.
 static int countRunAndMakeAscending(int *arr, int lo, int hi) {
-    if (lo >= hi - 1) {
-        return hi - lo;
-    }
+    // if (lo >= hi - 1) {
+    //     return hi - lo;
+    // }
 
     int runHi = lo + 1;
     if (arr[runHi] < arr[lo]) {
@@ -96,6 +96,7 @@ static void merge(int *arr, int l, int m, int r, int *temp) {
 static void mergeAt(int *arr, Run stack[], int *stackSize, int i, int *temp) {
     int base1 = stack[i].base;
     int len1 = stack[i].len;
+    int base2 = stack[i + 1].base;
     int len2 = stack[i + 1].len;
 
     stack[i].len = len1 + len2;
@@ -105,7 +106,7 @@ static void mergeAt(int *arr, Run stack[], int *stackSize, int i, int *temp) {
     }
     (*stackSize)--;
 
-    merge(arr, base1, base1 + len1 - 1, base1 + len1 + len2 - 1, temp);
+    merge(arr, base1, base1 + len1 - 1, base2 + len2 - 1, temp);
 }
 
 // Maintains TimSort stack balance invariants
