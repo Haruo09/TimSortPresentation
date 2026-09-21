@@ -16,7 +16,7 @@ from benchmark_utils import (
     timsort_complexity_func,
 )
 
-OUTPUT_IMAGE_PATH = "docs/benchmark_results.png"
+OUTPUT_IMAGE_PATH = "docs/bettertimsort_benchmark.png"
 
 
 def main():
