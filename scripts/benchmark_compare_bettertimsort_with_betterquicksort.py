@@ -36,7 +36,7 @@ def main():
         ts_times = benchmark_c_func(c_lib.betterTimSortAlgo, sizes, dist_gen)
         qs_times = benchmark_c_func(c_lib.betterQuickSortAlgo, sizes, dist_gen)
 
-        axes[i].plot(sizes, ts_times, label="TimSort", color="crimson", linewidth=2)
+        axes[i].plot(sizes, ts_times, label="BetterTimSort", color="crimson", linewidth=2)
         axes[i].plot(sizes, qs_times, label="BetterQuickSort", color="royalblue", linewidth=2, linestyle="--")
 
         axes[i].set_title(title)
