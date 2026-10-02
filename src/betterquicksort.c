@@ -1,4 +1,4 @@
-#include "quicksort.h"
+#include "sort_api.h"
 #include <stddef.h>
 
 #define CUTOFF 16
