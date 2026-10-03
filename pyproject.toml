@@ -1,18 +1,11 @@
 [project]
-name = "timsortpresentation"
-version = "0.1.0"
-description = "Add your description here"
+name = "sort-analyzer"
+version = "0.2.0"
+description = "A C/Python tool to analyzer and compare sorting algorithms' complexity"
 readme = "README.md"
-authors = [
-    { name = "Haruo09", email = "fabio.hn01@gmail.com" }
-]
+authors = [{ name = "Haruo09", email = "fabio.hn01@gmail.com" }]
 requires-python = ">=3.14"
-dependencies = [
-    "matplotlib>=3.11.2",
-    "numpy>=2.5.3",
-    "pytest>=9.1.1",
-    "scipy",
-]
+dependencies = ["matplotlib>=3.11.2", "numpy>=2.5.3", "pytest>=9.1.1", "scipy"]
 
 [project.scripts]
 timsortpresentation = "timsortpresentation:main"
@@ -22,6 +15,7 @@ requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = [
-    "hypothesis>=6.168.0",
-]
+dev = ["hypothesis>=6.168.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["benchmark"]

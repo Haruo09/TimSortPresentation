@@ -8,12 +8,12 @@ int main() {
     // descobrir o número de elementos do array
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Array original: ");
+    printf("Array original:\n");
     printArray(arr, n);
     printf("\n");
 
-    timSortAlgo(arr, n);
-    printf("Depois de ordenar por Tim Sort: ");
+    betterTimSortAlgo(arr, n);
+    printf("Depois de ordenar por Tim Sort:\n");
     printArray(arr, n);
 
     return 0;
